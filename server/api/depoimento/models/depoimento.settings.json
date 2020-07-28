@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "depoimentos",
+  "info": {
+    "name": "Depoimento"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Titulo": {
+      "type": "string",
+      "maxLength": 100,
+      "required": true,
+      "unique": false
+    },
+    "curso": {
+      "model": "curso",
+      "via": "depoimentos"
+    },
+    "Texto": {
+      "type": "richtext"
+    }
+  }
+}

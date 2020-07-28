@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/modalidade-ingressos",
+      "handler": "modalidade-ingresso.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/modalidade-ingressos/count",
+      "handler": "modalidade-ingresso.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/modalidade-ingressos/:id",
+      "handler": "modalidade-ingresso.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/modalidade-ingressos",
+      "handler": "modalidade-ingresso.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/modalidade-ingressos/:id",
+      "handler": "modalidade-ingresso.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/modalidade-ingressos/:id",
+      "handler": "modalidade-ingresso.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

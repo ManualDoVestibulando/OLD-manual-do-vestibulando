@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cursos",
+  "info": {
+    "name": "Curso"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Nome": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "instituto": {
+      "via": "cursos",
+      "model": "institutos"
+    },
+    "notas_1": {
+      "via": "curso_1",
+      "collection": "nota"
+    },
+    "notas_2": {
+      "via": "curso_2",
+      "collection": "nota"
+    },
+    "notas_3": {
+      "via": "curso_3",
+      "collection": "nota"
+    },
+    "notas_4": {
+      "via": "curso_4",
+      "collection": "nota"
+    },
+    "depoimentos": {
+      "via": "curso",
+      "collection": "depoimento"
+    }
+  }
+}

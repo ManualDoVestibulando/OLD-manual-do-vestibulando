@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notas",
+  "info": {
+    "name": "Nota"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "curso_1": {
+      "model": "curso",
+      "via": "notas_1"
+    },
+    "curso_2": {
+      "model": "curso",
+      "via": "notas_2"
+    },
+    "curso_3": {
+      "model": "curso",
+      "via": "notas_3"
+    },
+    "curso_4": {
+      "model": "curso",
+      "via": "notas_4"
+    },
+    "classificacao_1": {
+      "type": "integer"
+    },
+    "classificacao_2": {
+      "type": "integer"
+    },
+    "classificacao_3": {
+      "type": "integer"
+    },
+    "classificacao_4": {
+      "type": "integer"
+    },
+    "nota_1_fase": {
+      "type": "decimal"
+    },
+    "nota_2_fase_1_dia": {
+      "type": "decimal"
+    },
+    "nota_2_fase_2_dia": {
+      "type": "decimal"
+    },
+    "nota_redacao": {
+      "type": "decimal"
+    },
+    "modalidade_ingresso": {
+      "model": "modalidade-ingresso",
+      "via": "notas"
+    }
+  }
+}

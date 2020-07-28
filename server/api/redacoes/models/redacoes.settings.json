@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "redacoes",
+  "info": {
+    "name": "Redacoes"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Titulo": {
+      "type": "string"
+    },
+    "Texto": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    }
+  }
+}
