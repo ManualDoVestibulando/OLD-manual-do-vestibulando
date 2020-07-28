@@ -49,9 +49,16 @@
     "nota_redacao": {
       "type": "decimal"
     },
-    "modalidade_ingresso": {
-      "model": "modalidade-ingresso",
-      "via": "notas"
+    "ano": {
+      "type": "date"
+    },
+    "ModalidadeIngresso": {
+      "type": "enumeration",
+      "enum": [
+        "AC",
+        "EP",
+        "PPI"
+      ]
     }
   }
 }

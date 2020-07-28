@@ -17,6 +17,9 @@
     "cursos": {
       "collection": "curso",
       "via": "instituto"
+    },
+    "Sigla": {
+      "type": "string"
     }
   }
 }
