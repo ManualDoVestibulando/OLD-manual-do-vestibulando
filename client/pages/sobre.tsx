@@ -11,7 +11,7 @@ export default function Index() {
         <Row className="py-5"></Row>
         <Row>
           <Col>
-            <p className="align-bottom">
+            <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Suspendisse tempus tellus id quam aliquam, vitae bibendum tellus
               suscipit. Cras fermentum blandit dui ac auctor. Suspendisse
@@ -19,15 +19,14 @@ export default function Index() {
               eleifend. Nunc id massa lorem. Nulla posuere sed urna sed ornare.
               Suspendisse sed nulla et felis bibendum tempus nec a turpis.
               Quisque quis lectus lectus. Maecenas auctor efficitur dui vel
-              varius.
+              varius. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
-          </Col>
-          <Col>
-            <img
-              src="/logo_usp.png"
-              className="img-fluid"
-              alt="Responsive image"
-            />
           </Col>
         </Row>
         <Row>
@@ -37,18 +36,6 @@ export default function Index() {
               className="img-fluid rounded"
               alt="Responsive image"
             />
-          </Col>
-          <Col>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse tempus tellus id quam aliquam, vitae bibendum tellus
-              suscipit. Cras fermentum blandit dui ac auctor. Suspendisse
-              malesuada ut dui sed volutpat. Maecenas bibendum rutrum velit id
-              eleifend. Nunc id massa lorem. Nulla posuere sed urna sed ornare.
-              Suspendisse sed nulla et felis bibendum tempus nec a turpis.
-              Quisque quis lectus lectus. Maecenas auctor efficitur dui vel
-              varius.
-            </p>
           </Col>
         </Row>
       </Container>
