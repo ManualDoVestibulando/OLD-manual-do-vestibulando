@@ -1,0 +1,1345 @@
+type AdminUser {
+  id: ID!
+  username: String
+}
+
+input createCursoInput {
+  data: CursoInput
+}
+
+type createCursoPayload {
+  curso: Curso
+}
+
+input createDepoimentoInput {
+  data: DepoimentoInput
+}
+
+type createDepoimentoPayload {
+  depoimento: Depoimento
+}
+
+input createInstitutoInput {
+  data: InstitutoInput
+}
+
+type createInstitutoPayload {
+  instituto: Institutos
+}
+
+input createNotaInput {
+  data: NotaInput
+}
+
+type createNotaPayload {
+  nota: Nota
+}
+
+input createRedacoeInput {
+  data: RedacoeInput
+}
+
+type createRedacoePayload {
+  redacoe: Redacoes
+}
+
+input createRoleInput {
+  data: RoleInput
+}
+
+type createRolePayload {
+  role: UsersPermissionsRole
+}
+
+input createUserInput {
+  data: UserInput
+}
+
+type createUserPayload {
+  user: UsersPermissionsUser
+}
+
+type Curso {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Nome: String!
+  instituto: Institutos
+  created_by: AdminUser
+  updated_by: AdminUser
+  notas_1(sort: String, limit: Int, start: Int, where: JSON): [Nota]
+  notas_2(sort: String, limit: Int, start: Int, where: JSON): [Nota]
+  notas_3(sort: String, limit: Int, start: Int, where: JSON): [Nota]
+  notas_4(sort: String, limit: Int, start: Int, where: JSON): [Nota]
+  depoimentos(sort: String, limit: Int, start: Int, where: JSON): [Depoimento]
+}
+
+type CursoAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type CursoConnection {
+  values: [Curso]
+  groupBy: CursoGroupBy
+  aggregate: CursoAggregator
+}
+
+type CursoConnectionCreated_at {
+  key: DateTime
+  connection: CursoConnection
+}
+
+type CursoConnectionCreated_by {
+  key: ID
+  connection: CursoConnection
+}
+
+type CursoConnectionId {
+  key: ID
+  connection: CursoConnection
+}
+
+type CursoConnectionInstituto {
+  key: ID
+  connection: CursoConnection
+}
+
+type CursoConnectionNome {
+  key: String
+  connection: CursoConnection
+}
+
+type CursoConnectionUpdated_at {
+  key: DateTime
+  connection: CursoConnection
+}
+
+type CursoConnectionUpdated_by {
+  key: ID
+  connection: CursoConnection
+}
+
+type CursoGroupBy {
+  id: [CursoConnectionId]
+  created_at: [CursoConnectionCreated_at]
+  updated_at: [CursoConnectionUpdated_at]
+  Nome: [CursoConnectionNome]
+  instituto: [CursoConnectionInstituto]
+  created_by: [CursoConnectionCreated_by]
+  updated_by: [CursoConnectionUpdated_by]
+}
+
+input CursoInput {
+  Nome: String!
+  instituto: ID
+  notas_1: [ID]
+  notas_2: [ID]
+  notas_3: [ID]
+  notas_4: [ID]
+  depoimentos: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+"""
+A date string, such as 2007-12-03, compliant with the `full-date` format
+outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for
+representation of dates and times using the Gregorian calendar.
+"""
+scalar Date
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the
+`date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO
+8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+input deleteCursoInput {
+  where: InputID
+}
+
+type deleteCursoPayload {
+  curso: Curso
+}
+
+input deleteDepoimentoInput {
+  where: InputID
+}
+
+type deleteDepoimentoPayload {
+  depoimento: Depoimento
+}
+
+input deleteInstitutoInput {
+  where: InputID
+}
+
+type deleteInstitutoPayload {
+  instituto: Institutos
+}
+
+input deleteNotaInput {
+  where: InputID
+}
+
+type deleteNotaPayload {
+  nota: Nota
+}
+
+input deleteRedacoeInput {
+  where: InputID
+}
+
+type deleteRedacoePayload {
+  redacoe: Redacoes
+}
+
+input deleteRoleInput {
+  where: InputID
+}
+
+type deleteRolePayload {
+  role: UsersPermissionsRole
+}
+
+input deleteUserInput {
+  where: InputID
+}
+
+type deleteUserPayload {
+  user: UsersPermissionsUser
+}
+
+type Depoimento {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Titulo: String!
+  curso: Curso
+  Texto: String
+  created_by: AdminUser
+  updated_by: AdminUser
+}
+
+type DepoimentoAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type DepoimentoConnection {
+  values: [Depoimento]
+  groupBy: DepoimentoGroupBy
+  aggregate: DepoimentoAggregator
+}
+
+type DepoimentoConnectionCreated_at {
+  key: DateTime
+  connection: DepoimentoConnection
+}
+
+type DepoimentoConnectionCreated_by {
+  key: ID
+  connection: DepoimentoConnection
+}
+
+type DepoimentoConnectionCurso {
+  key: ID
+  connection: DepoimentoConnection
+}
+
+type DepoimentoConnectionId {
+  key: ID
+  connection: DepoimentoConnection
+}
+
+type DepoimentoConnectionTexto {
+  key: String
+  connection: DepoimentoConnection
+}
+
+type DepoimentoConnectionTitulo {
+  key: String
+  connection: DepoimentoConnection
+}
+
+type DepoimentoConnectionUpdated_at {
+  key: DateTime
+  connection: DepoimentoConnection
+}
+
+type DepoimentoConnectionUpdated_by {
+  key: ID
+  connection: DepoimentoConnection
+}
+
+type DepoimentoGroupBy {
+  id: [DepoimentoConnectionId]
+  created_at: [DepoimentoConnectionCreated_at]
+  updated_at: [DepoimentoConnectionUpdated_at]
+  Titulo: [DepoimentoConnectionTitulo]
+  curso: [DepoimentoConnectionCurso]
+  Texto: [DepoimentoConnectionTexto]
+  created_by: [DepoimentoConnectionCreated_by]
+  updated_by: [DepoimentoConnectionUpdated_by]
+}
+
+input DepoimentoInput {
+  Titulo: String!
+  curso: ID
+  Texto: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editCursoInput {
+  Nome: String
+  instituto: ID
+  notas_1: [ID]
+  notas_2: [ID]
+  notas_3: [ID]
+  notas_4: [ID]
+  depoimentos: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input editDepoimentoInput {
+  Titulo: String
+  curso: ID
+  Texto: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editFileInput {
+  name: String
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String
+  ext: String
+  mime: String
+  size: Float
+  url: String
+  previewUrl: String
+  provider: String
+  provider_metadata: JSON
+  related: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input editInstitutoInput {
+  Nome: String
+  cursos: [ID]
+  Sigla: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editNotaInput {
+  curso_1: ID
+  curso_2: ID
+  curso_3: ID
+  curso_4: ID
+  classificacao_1: Int
+  classificacao_2: Int
+  classificacao_3: Int
+  classificacao_4: Int
+  nota_1_fase: Float
+  nota_2_fase_1_dia: Float
+  nota_2_fase_2_dia: Float
+  nota_redacao: Float
+  ano: Date
+  ModalidadeIngresso: ENUM_NOTA_MODALIDADEINGRESSO
+  created_by: ID
+  updated_by: ID
+}
+
+input editRedacoeInput {
+  Titulo: String
+  Texto: ID
+  created_by: ID
+  updated_by: ID
+}
+
+input editRoleInput {
+  name: String
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input editUserInput {
+  username: String
+  email: String
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+  created_by: ID
+  updated_by: ID
+}
+
+enum ENUM_NOTA_MODALIDADEINGRESSO {
+  AC
+  EP
+  PPI
+}
+
+input FileInput {
+  name: String!
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String!
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input InputID {
+  id: ID!
+}
+
+input InstitutoInput {
+  Nome: String!
+  cursos: [ID]
+  Sigla: String
+  created_by: ID
+  updated_by: ID
+}
+
+type Institutos {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Nome: String!
+  Sigla: String
+  created_by: AdminUser
+  updated_by: AdminUser
+  cursos(sort: String, limit: Int, start: Int, where: JSON): [Curso]
+}
+
+type InstitutosAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type InstitutosConnection {
+  values: [Institutos]
+  groupBy: InstitutosGroupBy
+  aggregate: InstitutosAggregator
+}
+
+type InstitutosConnectionCreated_at {
+  key: DateTime
+  connection: InstitutosConnection
+}
+
+type InstitutosConnectionCreated_by {
+  key: ID
+  connection: InstitutosConnection
+}
+
+type InstitutosConnectionId {
+  key: ID
+  connection: InstitutosConnection
+}
+
+type InstitutosConnectionNome {
+  key: String
+  connection: InstitutosConnection
+}
+
+type InstitutosConnectionSigla {
+  key: String
+  connection: InstitutosConnection
+}
+
+type InstitutosConnectionUpdated_at {
+  key: DateTime
+  connection: InstitutosConnection
+}
+
+type InstitutosConnectionUpdated_by {
+  key: ID
+  connection: InstitutosConnection
+}
+
+type InstitutosGroupBy {
+  id: [InstitutosConnectionId]
+  created_at: [InstitutosConnectionCreated_at]
+  updated_at: [InstitutosConnectionUpdated_at]
+  Nome: [InstitutosConnectionNome]
+  Sigla: [InstitutosConnectionSigla]
+  created_by: [InstitutosConnectionCreated_by]
+  updated_by: [InstitutosConnectionUpdated_by]
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+"""The `Long` scalar type represents 52-bit integers"""
+scalar Long
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Curso | CursoConnection | CursoAggregator | CursoGroupBy | CursoConnectionId | CursoConnectionCreated_at | CursoConnectionUpdated_at | CursoConnectionNome | CursoConnectionInstituto | CursoConnectionCreated_by | CursoConnectionUpdated_by | createCursoPayload | updateCursoPayload | deleteCursoPayload | Depoimento | DepoimentoConnection | DepoimentoAggregator | DepoimentoGroupBy | DepoimentoConnectionId | DepoimentoConnectionCreated_at | DepoimentoConnectionUpdated_at | DepoimentoConnectionTitulo | DepoimentoConnectionCurso | DepoimentoConnectionTexto | DepoimentoConnectionCreated_by | DepoimentoConnectionUpdated_by | createDepoimentoPayload | updateDepoimentoPayload | deleteDepoimentoPayload | Institutos | InstitutosConnection | InstitutosAggregator | InstitutosGroupBy | InstitutosConnectionId | InstitutosConnectionCreated_at | InstitutosConnectionUpdated_at | InstitutosConnectionNome | InstitutosConnectionSigla | InstitutosConnectionCreated_by | InstitutosConnectionUpdated_by | createInstitutoPayload | updateInstitutoPayload | deleteInstitutoPayload | Nota | NotaConnection | NotaAggregator | NotaAggregatorSum | NotaAggregatorAvg | NotaAggregatorMin | NotaAggregatorMax | NotaGroupBy | NotaConnectionId | NotaConnectionCreated_at | NotaConnectionUpdated_at | NotaConnectionCurso_1 | NotaConnectionCurso_2 | NotaConnectionCurso_3 | NotaConnectionCurso_4 | NotaConnectionClassificacao_1 | NotaConnectionClassificacao_2 | NotaConnectionClassificacao_3 | NotaConnectionClassificacao_4 | NotaConnectionNota_1_fase | NotaConnectionNota_2_fase_1_dia | NotaConnectionNota_2_fase_2_dia | NotaConnectionNota_redacao | NotaConnectionAno | NotaConnectionModalidadeIngresso | NotaConnectionCreated_by | NotaConnectionUpdated_by | createNotaPayload | updateNotaPayload | deleteNotaPayload | Redacoes | RedacoesConnection | RedacoesAggregator | RedacoesGroupBy | RedacoesConnectionId | RedacoesConnectionCreated_at | RedacoesConnectionUpdated_at | RedacoesConnectionTitulo | RedacoesConnectionTexto | RedacoesConnectionCreated_by | RedacoesConnectionUpdated_by | createRedacoePayload | updateRedacoePayload | deleteRedacoePayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | UploadFileConnectionCreated_by | UploadFileConnectionUpdated_by | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsRoleConnectionCreated_by | UsersPermissionsRoleConnectionUpdated_by | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionCreated_by | UsersPermissionsUserConnectionUpdated_by | createUserPayload | updateUserPayload | deleteUserPayload
+
+type Mutation {
+  createCurso(input: createCursoInput): createCursoPayload
+  updateCurso(input: updateCursoInput): updateCursoPayload
+  deleteCurso(input: deleteCursoInput): deleteCursoPayload
+  createDepoimento(input: createDepoimentoInput): createDepoimentoPayload
+  updateDepoimento(input: updateDepoimentoInput): updateDepoimentoPayload
+  deleteDepoimento(input: deleteDepoimentoInput): deleteDepoimentoPayload
+  createInstituto(input: createInstitutoInput): createInstitutoPayload
+  updateInstituto(input: updateInstitutoInput): updateInstitutoPayload
+  deleteInstituto(input: deleteInstitutoInput): deleteInstitutoPayload
+  createNota(input: createNotaInput): createNotaPayload
+  updateNota(input: updateNotaInput): updateNotaPayload
+  deleteNota(input: deleteNotaInput): deleteNotaPayload
+  createRedacoe(input: createRedacoeInput): createRedacoePayload
+  updateRedacoe(input: updateRedacoeInput): updateRedacoePayload
+  deleteRedacoe(input: deleteRedacoeInput): deleteRedacoePayload
+
+  """Create a new role"""
+  createRole(input: createRoleInput): createRolePayload
+
+  """Update an existing role"""
+  updateRole(input: updateRoleInput): updateRolePayload
+
+  """Delete an existing role"""
+  deleteRole(input: deleteRoleInput): deleteRolePayload
+
+  """Create a new user"""
+  createUser(input: createUserInput): createUserPayload
+
+  """Update an existing user"""
+  updateUser(input: updateUserInput): updateUserPayload
+
+  """Delete an existing user"""
+  deleteUser(input: deleteUserInput): deleteUserPayload
+  upload(refId: ID, ref: String, field: String, source: String, file: Upload!): UploadFile!
+  multipleUpload(refId: ID, ref: String, field: String, source: String, files: [Upload]!): [UploadFile]!
+  login(input: UsersPermissionsLoginInput!): UsersPermissionsLoginPayload!
+  register(input: UsersPermissionsRegisterInput!): UsersPermissionsLoginPayload!
+  forgotPassword(email: String!): UserPermissionsPasswordPayload
+  resetPassword(password: String!, passwordConfirmation: String!, code: String!): UsersPermissionsLoginPayload
+  emailConfirmation(confirmation: String!): UsersPermissionsLoginPayload
+}
+
+type Nota {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  curso_1: Curso
+  curso_2: Curso
+  curso_3: Curso
+  curso_4: Curso
+  classificacao_1: Int
+  classificacao_2: Int
+  classificacao_3: Int
+  classificacao_4: Int
+  nota_1_fase: Float
+  nota_2_fase_1_dia: Float
+  nota_2_fase_2_dia: Float
+  nota_redacao: Float
+  ano: Date
+  ModalidadeIngresso: ENUM_NOTA_MODALIDADEINGRESSO
+  created_by: AdminUser
+  updated_by: AdminUser
+}
+
+type NotaAggregator {
+  count: Int
+  totalCount: Int
+  sum: NotaAggregatorSum
+  avg: NotaAggregatorAvg
+  min: NotaAggregatorMin
+  max: NotaAggregatorMax
+}
+
+type NotaAggregatorAvg {
+  classificacao_1: Float
+  classificacao_2: Float
+  classificacao_3: Float
+  classificacao_4: Float
+  nota_1_fase: Float
+  nota_2_fase_1_dia: Float
+  nota_2_fase_2_dia: Float
+  nota_redacao: Float
+}
+
+type NotaAggregatorMax {
+  classificacao_1: Float
+  classificacao_2: Float
+  classificacao_3: Float
+  classificacao_4: Float
+  nota_1_fase: Float
+  nota_2_fase_1_dia: Float
+  nota_2_fase_2_dia: Float
+  nota_redacao: Float
+}
+
+type NotaAggregatorMin {
+  classificacao_1: Float
+  classificacao_2: Float
+  classificacao_3: Float
+  classificacao_4: Float
+  nota_1_fase: Float
+  nota_2_fase_1_dia: Float
+  nota_2_fase_2_dia: Float
+  nota_redacao: Float
+}
+
+type NotaAggregatorSum {
+  classificacao_1: Float
+  classificacao_2: Float
+  classificacao_3: Float
+  classificacao_4: Float
+  nota_1_fase: Float
+  nota_2_fase_1_dia: Float
+  nota_2_fase_2_dia: Float
+  nota_redacao: Float
+}
+
+type NotaConnection {
+  values: [Nota]
+  groupBy: NotaGroupBy
+  aggregate: NotaAggregator
+}
+
+type NotaConnectionAno {
+  key: ID
+  connection: NotaConnection
+}
+
+type NotaConnectionClassificacao_1 {
+  key: Int
+  connection: NotaConnection
+}
+
+type NotaConnectionClassificacao_2 {
+  key: Int
+  connection: NotaConnection
+}
+
+type NotaConnectionClassificacao_3 {
+  key: Int
+  connection: NotaConnection
+}
+
+type NotaConnectionClassificacao_4 {
+  key: Int
+  connection: NotaConnection
+}
+
+type NotaConnectionCreated_at {
+  key: DateTime
+  connection: NotaConnection
+}
+
+type NotaConnectionCreated_by {
+  key: ID
+  connection: NotaConnection
+}
+
+type NotaConnectionCurso_1 {
+  key: ID
+  connection: NotaConnection
+}
+
+type NotaConnectionCurso_2 {
+  key: ID
+  connection: NotaConnection
+}
+
+type NotaConnectionCurso_3 {
+  key: ID
+  connection: NotaConnection
+}
+
+type NotaConnectionCurso_4 {
+  key: ID
+  connection: NotaConnection
+}
+
+type NotaConnectionId {
+  key: ID
+  connection: NotaConnection
+}
+
+type NotaConnectionModalidadeIngresso {
+  key: String
+  connection: NotaConnection
+}
+
+type NotaConnectionNota_1_fase {
+  key: Float
+  connection: NotaConnection
+}
+
+type NotaConnectionNota_2_fase_1_dia {
+  key: Float
+  connection: NotaConnection
+}
+
+type NotaConnectionNota_2_fase_2_dia {
+  key: Float
+  connection: NotaConnection
+}
+
+type NotaConnectionNota_redacao {
+  key: Float
+  connection: NotaConnection
+}
+
+type NotaConnectionUpdated_at {
+  key: DateTime
+  connection: NotaConnection
+}
+
+type NotaConnectionUpdated_by {
+  key: ID
+  connection: NotaConnection
+}
+
+type NotaGroupBy {
+  id: [NotaConnectionId]
+  created_at: [NotaConnectionCreated_at]
+  updated_at: [NotaConnectionUpdated_at]
+  curso_1: [NotaConnectionCurso_1]
+  curso_2: [NotaConnectionCurso_2]
+  curso_3: [NotaConnectionCurso_3]
+  curso_4: [NotaConnectionCurso_4]
+  classificacao_1: [NotaConnectionClassificacao_1]
+  classificacao_2: [NotaConnectionClassificacao_2]
+  classificacao_3: [NotaConnectionClassificacao_3]
+  classificacao_4: [NotaConnectionClassificacao_4]
+  nota_1_fase: [NotaConnectionNota_1_fase]
+  nota_2_fase_1_dia: [NotaConnectionNota_2_fase_1_dia]
+  nota_2_fase_2_dia: [NotaConnectionNota_2_fase_2_dia]
+  nota_redacao: [NotaConnectionNota_redacao]
+  ano: [NotaConnectionAno]
+  ModalidadeIngresso: [NotaConnectionModalidadeIngresso]
+  created_by: [NotaConnectionCreated_by]
+  updated_by: [NotaConnectionUpdated_by]
+}
+
+input NotaInput {
+  curso_1: ID
+  curso_2: ID
+  curso_3: ID
+  curso_4: ID
+  classificacao_1: Int
+  classificacao_2: Int
+  classificacao_3: Int
+  classificacao_4: Int
+  nota_1_fase: Float
+  nota_2_fase_1_dia: Float
+  nota_2_fase_2_dia: Float
+  nota_redacao: Float
+  ano: Date
+  ModalidadeIngresso: ENUM_NOTA_MODALIDADEINGRESSO
+  created_by: ID
+  updated_by: ID
+}
+
+type Query {
+  curso(id: ID!): Curso
+  cursos(sort: String, limit: Int, start: Int, where: JSON): [Curso]
+  cursosConnection(sort: String, limit: Int, start: Int, where: JSON): CursoConnection
+  depoimento(id: ID!): Depoimento
+  depoimentos(sort: String, limit: Int, start: Int, where: JSON): [Depoimento]
+  depoimentosConnection(sort: String, limit: Int, start: Int, where: JSON): DepoimentoConnection
+  instituto(id: ID!): Institutos
+  institutos(sort: String, limit: Int, start: Int, where: JSON): [Institutos]
+  institutosConnection(sort: String, limit: Int, start: Int, where: JSON): InstitutosConnection
+  nota(id: ID!): Nota
+  notas(sort: String, limit: Int, start: Int, where: JSON): [Nota]
+  notasConnection(sort: String, limit: Int, start: Int, where: JSON): NotaConnection
+  redacoe(id: ID!): Redacoes
+  redacoes(sort: String, limit: Int, start: Int, where: JSON): [Redacoes]
+  redacoesConnection(sort: String, limit: Int, start: Int, where: JSON): RedacoesConnection
+  files(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
+  role(id: ID!): UsersPermissionsRole
+
+  """
+  Retrieve all the existing roles. You can't apply filters on this query.
+  """
+  roles(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsRole]
+  rolesConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsRoleConnection
+  user(id: ID!): UsersPermissionsUser
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+  usersConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsUserConnection
+  me: UsersPermissionsMe
+}
+
+input RedacoeInput {
+  Titulo: String
+  Texto: ID
+  created_by: ID
+  updated_by: ID
+}
+
+type Redacoes {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Titulo: String
+  Texto: UploadFile
+  created_by: AdminUser
+  updated_by: AdminUser
+}
+
+type RedacoesAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type RedacoesConnection {
+  values: [Redacoes]
+  groupBy: RedacoesGroupBy
+  aggregate: RedacoesAggregator
+}
+
+type RedacoesConnectionCreated_at {
+  key: DateTime
+  connection: RedacoesConnection
+}
+
+type RedacoesConnectionCreated_by {
+  key: ID
+  connection: RedacoesConnection
+}
+
+type RedacoesConnectionId {
+  key: ID
+  connection: RedacoesConnection
+}
+
+type RedacoesConnectionTexto {
+  key: ID
+  connection: RedacoesConnection
+}
+
+type RedacoesConnectionTitulo {
+  key: String
+  connection: RedacoesConnection
+}
+
+type RedacoesConnectionUpdated_at {
+  key: DateTime
+  connection: RedacoesConnection
+}
+
+type RedacoesConnectionUpdated_by {
+  key: ID
+  connection: RedacoesConnection
+}
+
+type RedacoesGroupBy {
+  id: [RedacoesConnectionId]
+  created_at: [RedacoesConnectionCreated_at]
+  updated_at: [RedacoesConnectionUpdated_at]
+  Titulo: [RedacoesConnectionTitulo]
+  Texto: [RedacoesConnectionTexto]
+  created_by: [RedacoesConnectionCreated_by]
+  updated_by: [RedacoesConnectionUpdated_by]
+}
+
+input RoleInput {
+  name: String!
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+"""A time string with format: HH:mm:ss.SSS"""
+scalar Time
+
+input updateCursoInput {
+  where: InputID
+  data: editCursoInput
+}
+
+type updateCursoPayload {
+  curso: Curso
+}
+
+input updateDepoimentoInput {
+  where: InputID
+  data: editDepoimentoInput
+}
+
+type updateDepoimentoPayload {
+  depoimento: Depoimento
+}
+
+input updateInstitutoInput {
+  where: InputID
+  data: editInstitutoInput
+}
+
+type updateInstitutoPayload {
+  instituto: Institutos
+}
+
+input updateNotaInput {
+  where: InputID
+  data: editNotaInput
+}
+
+type updateNotaPayload {
+  nota: Nota
+}
+
+input updateRedacoeInput {
+  where: InputID
+  data: editRedacoeInput
+}
+
+type updateRedacoePayload {
+  redacoe: Redacoes
+}
+
+input updateRoleInput {
+  where: InputID
+  data: editRoleInput
+}
+
+type updateRolePayload {
+  role: UsersPermissionsRole
+}
+
+input updateUserInput {
+  where: InputID
+  data: editUserInput
+}
+
+type updateUserPayload {
+  user: UsersPermissionsUser
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+type UploadFile {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String!
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String!
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  created_by: AdminUser
+  updated_by: AdminUser
+  related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
+}
+
+type UploadFileAggregator {
+  count: Int
+  totalCount: Int
+  sum: UploadFileAggregatorSum
+  avg: UploadFileAggregatorAvg
+  min: UploadFileAggregatorMin
+  max: UploadFileAggregatorMax
+}
+
+type UploadFileAggregatorAvg {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMax {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMin {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorSum {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileConnection {
+  values: [UploadFile]
+  groupBy: UploadFileGroupBy
+  aggregate: UploadFileAggregator
+}
+
+type UploadFileConnectionAlternativeText {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCaption {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCreated_at {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCreated_by {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionExt {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionFormats {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHash {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHeight {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionId {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionMime {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionName {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionPreviewUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider_metadata {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionSize {
+  key: Float
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUpdated_at {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUpdated_by {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionWidth {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileGroupBy {
+  id: [UploadFileConnectionId]
+  created_at: [UploadFileConnectionCreated_at]
+  updated_at: [UploadFileConnectionUpdated_at]
+  name: [UploadFileConnectionName]
+  alternativeText: [UploadFileConnectionAlternativeText]
+  caption: [UploadFileConnectionCaption]
+  width: [UploadFileConnectionWidth]
+  height: [UploadFileConnectionHeight]
+  formats: [UploadFileConnectionFormats]
+  hash: [UploadFileConnectionHash]
+  ext: [UploadFileConnectionExt]
+  mime: [UploadFileConnectionMime]
+  size: [UploadFileConnectionSize]
+  url: [UploadFileConnectionUrl]
+  previewUrl: [UploadFileConnectionPreviewUrl]
+  provider: [UploadFileConnectionProvider]
+  provider_metadata: [UploadFileConnectionProvider_metadata]
+  created_by: [UploadFileConnectionCreated_by]
+  updated_by: [UploadFileConnectionUpdated_by]
+}
+
+input UserInput {
+  username: String!
+  email: String!
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+  created_by: ID
+  updated_by: ID
+}
+
+type UserPermissionsPasswordPayload {
+  ok: Boolean!
+}
+
+input UsersPermissionsLoginInput {
+  identifier: String!
+  password: String!
+  provider: String = "local"
+}
+
+type UsersPermissionsLoginPayload {
+  jwt: String
+  user: UsersPermissionsMe!
+}
+
+type UsersPermissionsMe {
+  id: ID!
+  username: String!
+  email: String!
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsMeRole
+}
+
+type UsersPermissionsMeRole {
+  id: ID!
+  name: String!
+  description: String
+  type: String
+}
+
+type UsersPermissionsPermission {
+  id: ID!
+  type: String!
+  controller: String!
+  action: String!
+  enabled: Boolean!
+  policy: String
+  role: UsersPermissionsRole
+  created_by: AdminUser
+  updated_by: AdminUser
+}
+
+input UsersPermissionsRegisterInput {
+  username: String!
+  email: String!
+  password: String!
+}
+
+type UsersPermissionsRole {
+  id: ID!
+  name: String!
+  description: String
+  type: String
+  created_by: AdminUser
+  updated_by: AdminUser
+  permissions(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsPermission]
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+type UsersPermissionsRoleAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsRoleConnection {
+  values: [UsersPermissionsRole]
+  groupBy: UsersPermissionsRoleGroupBy
+  aggregate: UsersPermissionsRoleAggregator
+}
+
+type UsersPermissionsRoleConnectionCreated_by {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionDescription {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionId {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionName {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionType {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionUpdated_by {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleGroupBy {
+  id: [UsersPermissionsRoleConnectionId]
+  name: [UsersPermissionsRoleConnectionName]
+  description: [UsersPermissionsRoleConnectionDescription]
+  type: [UsersPermissionsRoleConnectionType]
+  created_by: [UsersPermissionsRoleConnectionCreated_by]
+  updated_by: [UsersPermissionsRoleConnectionUpdated_by]
+}
+
+type UsersPermissionsUser {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  username: String!
+  email: String!
+  provider: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsRole
+  created_by: AdminUser
+  updated_by: AdminUser
+}
+
+type UsersPermissionsUserAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsUserConnection {
+  values: [UsersPermissionsUser]
+  groupBy: UsersPermissionsUserGroupBy
+  aggregate: UsersPermissionsUserAggregator
+}
+
+type UsersPermissionsUserConnectionBlocked {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionConfirmed {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionCreated_at {
+  key: DateTime
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionCreated_by {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionEmail {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionId {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionProvider {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionRole {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUpdated_at {
+  key: DateTime
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUpdated_by {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUsername {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserGroupBy {
+  id: [UsersPermissionsUserConnectionId]
+  created_at: [UsersPermissionsUserConnectionCreated_at]
+  updated_at: [UsersPermissionsUserConnectionUpdated_at]
+  username: [UsersPermissionsUserConnectionUsername]
+  email: [UsersPermissionsUserConnectionEmail]
+  provider: [UsersPermissionsUserConnectionProvider]
+  confirmed: [UsersPermissionsUserConnectionConfirmed]
+  blocked: [UsersPermissionsUserConnectionBlocked]
+  role: [UsersPermissionsUserConnectionRole]
+  created_by: [UsersPermissionsUserConnectionCreated_by]
+  updated_by: [UsersPermissionsUserConnectionUpdated_by]
+}
