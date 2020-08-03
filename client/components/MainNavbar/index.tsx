@@ -15,6 +15,20 @@ const MainNavbar = () => {
       <Navbar.Brand href="#home">Manual do Vestibulando</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link href="#home" className="ml-lg-5">
+            Início
+          </Nav.Link>
+          <Nav.Link href="#cursos" className="ml-lg-5">
+            Procurar Curso
+          </Nav.Link>
+          <Nav.Link href="#redacoes" className="ml-lg-5">
+            Redações
+          </Nav.Link>
+          <Nav.Link href="#sobre" className="ml-lg-5">
+            Sobre
+          </Nav.Link>
+        </Nav>
         <Form inline>
           <FormControl
             type="text"
@@ -23,17 +37,6 @@ const MainNavbar = () => {
           />
           <Button variant="outline-warning">Procurar</Button>
         </Form>
-        <Nav className="mr-auto">
-          <Nav.Link href="#home" className="ml-lg-5">
-            Início
-          </Nav.Link>
-          <Nav.Link href="#link" className="ml-lg-5">
-            Redações
-          </Nav.Link>
-          <Nav.Link href="#link" className="ml-lg-5">
-            Sobre
-          </Nav.Link>
-        </Nav>
       </Navbar.Collapse>
     </Navbar>
   );
